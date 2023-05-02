@@ -1,0 +1,131 @@
+.modal {
+	position: fixed;
+	left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+	background: rgba(0,0,0,.8);
+	display: flex;
+   flex-direction: column;
+   justify-content: center;
+   opacity: 0;
+	visibility: hidden;
+   transition: opacity 200ms;
+	z-index: 100;
+}
+.modal._active {
+   opacity: 1;
+	visibility: visible;
+}
+.modal__wrap{
+	overflow-y: auto;
+}
+.modal__body{
+	max-width: 330px;
+   min-height: 200px;
+   margin: 25px auto;
+   background: #fff;
+   border-radius: 10px;
+	position: relative;
+	padding: 5px 35px 45px 35px;
+   text-align: center;
+	overflow: hidden;
+}
+.modal__title {
+	font: 900 22px/50px "sf pro display";
+}
+.modal__form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.modal__form:not(:last-child) {
+	margin-bottom: 25px;
+}
+.modal__item {
+	height: 45px;
+	position: relative;
+}
+.modal__item::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	width: 15px;
+	height: 15px;
+	z-index: 100;
+	background: url("./icon-1.svg") 0 0 no-repeat;
+}
+.modal__label {
+	position: absolute;
+	bottom: 100%;
+	left: 35px;
+	/* transform: translateY(-50%); */
+	opacity: 0.5;
+}
+.modal__input {
+	width: 100%;
+	height: 100%;
+	border: none;
+	border-bottom: 1px solid #aaa;
+	font: 600 21px/24px arial;
+	padding: 0 12px 0 35px;
+	position: relative;
+}
+.modal__input:focus {
+	border: none;
+	outline: none;
+	border-bottom: 1px solid #68C600;;
+}
+.modal__btn{
+	background: #68C600;
+	border: 0;
+	color: #fff;
+	font: 600 19px/45px geometria,arial;
+	position: relative;
+	cursor: pointer;
+	transition: background-color 250ms;
+	display: block;
+	width: 100%;
+	border-radius: 4px;
+}
+.other-modal__item {
+	font: 14px/16px arial;
+	color: #888;
+	display: inline-block;
+	border-bottom: 1px dashed;
+	cursor: pointer;
+}
+.other-modal__item:hover {
+	color: red;
+}
+.other-modal__item:not(:first-child){
+	margin-top: 23px;
+	position: relative;
+}
+.other-modal__item:not(:first-child)::before{
+	content: 'или';
+	position: absolute;
+	top: -18px;
+	left: 50%;
+	transform: translate(-50%);
+	color: #000;
+	pointer-events: none;
+}
+.close{
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	right: 10px;
+	top: 10px;
+	border-radius: 50%;
+	border: none;
+   background: url('./close.svg') no-repeat 50% 50%;
+   z-index: 10;
+   cursor: pointer;
+	background-color: #fff;
+	transition: opacity 200ms;
+	background-size: 25px auto;
+	opacity: .9;
+}

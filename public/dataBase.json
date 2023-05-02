@@ -1,0 +1,74 @@
+{
+	"pizza": [
+		{
+			"category": "Пицца",
+			"name": "Маргарита",
+			"price": "700",
+			"size": [
+				"30",
+				"36",
+				"40"
+			],
+			"imageUrl": "https://static.1000.menu/img/content-v2/ef/27/10853/picca-margarita-v-domashnix-usloviyax_1608783820_4_max.jpg"
+		},
+		{
+			"category": "Пицца",
+			"name": "Пепперони",
+			"price": "900",
+			"size": [
+				"30",
+				"36",
+				"40"
+			],
+			"imageUrl": "https://static.1000.menu/img/content-v2/85/ff/6190/pitstsa-pepperoni-_1612599986_22_max.jpg"
+		},
+		{
+			"category": "Пицца",
+			"name": "4 сезона",
+			"price": "500",
+			"size": [
+				"30",
+				"36",
+				"40"
+			],
+			"imageUrl": "https://thebest.kz/assets/images/4-sezona-picca.jpg"
+		},
+		{
+			"category": "Пицца",
+			"name": "Морская",
+			"price": "1000",
+			"size": [
+				"30",
+				"36",
+				"40"
+			],
+			"imageUrl": "https://www.gastronom.ru/binfiles/images/00000016/00022613.jpg"
+		}
+	],
+	"wok": [
+		{
+			"category": "WOK",
+			"name": "Курица",
+			"price": "200",
+			"imageUrl": "https://wok.by/upload/iblock/7cc/7cce00e0e7767d374f333ec614dfb509.png"
+		},
+		{
+			"category": "WOK",
+			"name": "Говядина",
+			"price": "300",
+			"imageUrl": "https://wok.by/upload/iblock/5a0/5a0477ae63186aeb32b274c21939febc.png"
+		},
+		{
+			"category": "WOK",
+			"name": "Креветки",
+			"price": "400",
+			"imageUrl": "https://wok.by/upload/iblock/0ba/0bac2b7b33cb021b2e48e985e6e59ddb.png"
+		},
+		{
+			"category": "WOK",
+			"name": "Вегетерианский",
+			"price": "1000",
+			"imageUrl": "https://wok.by/upload/iblock/0c1/0c1941ae2b33056a87ab79b47f2745c2.png"
+		}
+	]
+}

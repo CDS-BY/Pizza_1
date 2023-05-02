@@ -1,0 +1,40 @@
+.order{
+	height: calc(100vh - 140px);
+	min-height: 300px;
+	padding: 10px;
+	padding-bottom: 20px;
+	background: #F5F5F5;
+	border-radius: 15px;
+	position: sticky;
+	top: 110px;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	row-gap: 10px;
+}
+.order__title{
+	flex: 0 0 32px;
+}
+.order__body {
+	flex: 0 0 calc(100% - 32px - 21px - 20px);
+	overflow: auto;
+}
+.order__body > div {
+	display: flex;
+	justify-content: space-between;
+}
+.order__sum{
+	flex: 0 0 21px;
+	font-weight: 700;
+	display: flex;
+	justify-content: space-between;
+}
+.text{
+	color: black;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	text-align: center;
+	font: 400 16px/21px 'SF Pro Display';
+	opacity: .2;
+}
