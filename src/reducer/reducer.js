@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				// тут нужно убрать из массива определенный элем (скорее всего по id, но как его передать) 
-				order: [...state.order, action.payload]
+				order: [...state.order].filter((item, i) => i !== action.payload)
 			};
 		default:
 			return state;
