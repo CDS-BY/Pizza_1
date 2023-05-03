@@ -1,2 +1,6 @@
 export const add = (value) => ({ type: 'ADD', payload: value })
 export const remove = (value) => ({ type: 'REMOVE', payload: value })
+export const toggleModal = () => ({ type: 'TOGGLE_MODAL'})
+export const itemsFetching = () => ({ type: 'ITEMS_FETCHING'})
+export const itemsFetched = (items) => ({ type: 'ITEMS_FETCHED', payload: items})
+export const itemsFetchingError = () => ({ type: 'ITEMS_FETCHING_ERROR'})

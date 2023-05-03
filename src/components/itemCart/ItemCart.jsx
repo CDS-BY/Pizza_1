@@ -4,13 +4,13 @@ import * as actions from '../../actions/actions'
 import './itemCart.css'
 
 const ItemCart = ({price, 
-						avatar = "./image-1.jpg", 
+						imageUrl = "./image-1.jpg", 
 						name='name', 
 						add}) => {
 	return (
 		<div className="cart__body">
 			<a href="#" className="cart__image">
-				<img src={avatar} alt="1" />
+				<img src={imageUrl} alt="1" />
 			</a>
 			<div className="cart__content">
 				<h2 className="cart__title">{name}</h2>

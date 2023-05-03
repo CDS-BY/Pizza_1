@@ -1,8 +1,13 @@
 import './header.css'
 import logo from './logo-carte.svg'
 
-const Header = ({activeModal}) => {
+import {toggleModal} from '../../actions/actions'
+import {useSelector, useDispatch} from 'react-redux'
 
+const Header = () => {
+
+	const dispatch = useDispatch();
+	
 	return (
 		<div className="header">
 			<div className="header__container">
@@ -22,7 +27,7 @@ const Header = ({activeModal}) => {
 				</nav> */}
 				{/* <button className="header__cart">Корзина</button> */}
 				<div className="header__auth auth">
-					<button onClick={activeModal} className="auth__link">Войти</button>
+					<button onClick={() => dispatch(toggleModal())} className="auth__link">Войти</button>
 					{/* <a href="№" className="auth__link">Зарегистрироваться</a> */}
 				</div>
 			</div>
