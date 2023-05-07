@@ -90,6 +90,10 @@
 	width: 100%;
 	border-radius: 4px;
 }
+.other-modal {
+	display: grid;
+	justify-items: center;
+}
 .other-modal__item {
 	font: 14px/16px arial;
 	color: #888;

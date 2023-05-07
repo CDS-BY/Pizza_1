@@ -1,7 +1,13 @@
-import {createStore} from 'redux'
-import reducer from '../reducers'
+import { configureStore } from '@reduxjs/toolkit'
 
-const store = createStore(reducer, 
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+import items from '../components/items/itemsSlice'
+import cart from '../components/cart/cartSlice'
+import auth from '../reducers/auth'
+
+const store = configureStore({
+	reducer: {items, cart, auth},
+	middleware: getDefaultMiddleware => getDefaultMiddleware(),
+	devTools: process.env.NODE_ENV !== 'production'
+})
 
 export default store

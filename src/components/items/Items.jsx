@@ -4,20 +4,18 @@ import { useHttp } from '../../hooks/http.hook'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import {itemsFetching, itemsFetched, itemsFetchingError} from '../../actions/actions'
+import {fetchItems} from '../../actions/actions'
 import ItemCart from '../itemCart/ItemCart'
 
 const Items = () => {
 
-	const {items, itemsLoadingStatus} = useSelector(state => state);
+	const {items, itemsLoadingStatus} = useSelector(state => state.items);
 	const dispatch = useDispatch();
 	const {request} = useHttp();
 
 	useEffect(() => {
-		dispatch(itemsFetching())
-		request('https://6449e9f7a8370fb32140d3a9.mockapi.io/users')
-		.then(data => dispatch(itemsFetched(data[0].pizza)))
-		.catch(() => dispatch(itemsFetchingError()))
+		dispatch(fetchItems(request))
+		// eslint-disable-next-line
 	}, [])
 
 	if(itemsLoadingStatus === 'loading') {

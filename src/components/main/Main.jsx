@@ -3,12 +3,12 @@ import Items from '../items/Items'
 
 import './main.css'
 
-const Main = ({ cards }) => {
+const Main = () => {
 
 	return (
 		<main className="main">
 			<div className="main__container">
-				<Items items={cards}/>
+				<Items />
 				<Cart/>
 			</div>
 		</main>

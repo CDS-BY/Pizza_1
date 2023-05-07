@@ -1,12 +1,16 @@
-import {connect} from 'react-redux'
-import * as actions from '../../actions/actions'
+// import * as actions from '../../actions/actions'
+import { addCartItem } from '../cart/cartSlice'
+import { useDispatch } from 'react-redux'
+
 
 import './itemCart.css'
 
 const ItemCart = ({price, 
 						imageUrl = "./image-1.jpg", 
-						name='name', 
-						add}) => {
+						name='name'}) => {
+
+	const dispatch = useDispatch();
+
 	return (
 		<div className="cart__body">
 			<a href="#" className="cart__image">
@@ -20,7 +24,7 @@ const ItemCart = ({price,
 				<div className="cart__footer">
 					<div className="cart__price">{price}</div>
 					<button 
-						onClick={() => add({price, name})}
+						onClick={() => dispatch(addCartItem({price, name}))}
 						className="cart__button"
 						>Заказать</button>
 				</div>
@@ -29,9 +33,4 @@ const ItemCart = ({price,
 	)
 }
 
-const mapStateToProps = (state) => {
-	return {
-	}
-}
-
-export default connect(mapStateToProps, actions)(ItemCart)
+export default ItemCart
