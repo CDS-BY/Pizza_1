@@ -1,7 +1,7 @@
 import './header.css'
 import logo from './logo-carte.svg'
 
-import {toggleModal} from '../../actions/actions'
+import {toggleModal} from '../authModall/modalSlice'
 import {useSelector, useDispatch} from 'react-redux'
 
 const Header = () => {

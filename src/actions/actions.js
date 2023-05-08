@@ -7,26 +7,3 @@ export const fetchItems = (request) => (dispatch) => {
 		.then(data => dispatch(itemsFetched(data[0].pizza)))
 		.catch(() => dispatch(itemsFetchingError()))
 }
-
-// export const add = (value) => ({
-// 	type: 'ADD', payload: value
-// })
-// export const remove = (value) => ({
-// 	type: 'REMOVE',
-// 	payload: value
-// })
-
-// все, что свзяано с авторизацией
-
-export const authFetching = () => ({
-	type: 'AUTH_FETCHING'
-})
-export const authFetched = () => ({
-	type: 'AUTH_FETCHED'
-})
-export const authFetchingError = () => ({
-	type: 'AUTH_FETCHING_ERROR'
-})
-export const toggleModal = () => ({
-	type: 'TOGGLE_MODAL'
-})

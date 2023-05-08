@@ -31,12 +31,4 @@ const Cart = () => {
 	)
 }
 
-// const mapStateToProps = (state) => {
-// 	return {
-// 		order: state.order,
-// 		sum: state.sum
-// 	}
-// }
-
 export default Cart
-// export default connect(mapStateToProps, actions)(Cart)

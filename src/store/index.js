@@ -2,10 +2,10 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import items from '../components/items/itemsSlice'
 import cart from '../components/cart/cartSlice'
-import auth from '../reducers/auth'
+import modal from '../components/authModall/modalSlice'
 
 const store = configureStore({
-	reducer: {items, cart, auth},
+	reducer: {items, cart, modal},
 	middleware: getDefaultMiddleware => getDefaultMiddleware(),
 	devTools: process.env.NODE_ENV !== 'production'
 })

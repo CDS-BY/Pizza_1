@@ -1,17 +1,21 @@
 import './authModal.css'
 
-import { toggleModal } from '../../actions/actions'
+import { toggleModal } from './modalSlice'
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-const AuthModal = ({ modal, activeModal }) => {
-	const [formName, setFormName] = useState('')
+const AuthModal = ({ activeModal }) => {
 	const [formTel, setFormTel] = useState('')
 	const [formPassword, setFormPassword] = useState('')
 	const [activeForm, setActiveForm] = useState('1')
 
-	const { name, tel, password, modalOpen } = useSelector(state => state.auth)
+	const { modalOpen } = useSelector(state => state.modal)
 	const dispatch = useDispatch();
+
+	const clearForm = () => {
+		setFormTel('')
+		setFormPassword('')
+	}
 
 	const form1 = (
 		<>
@@ -34,13 +38,15 @@ const AuthModal = ({ modal, activeModal }) => {
 					className="modal__btn"
 					onClick={(e) => {
 						e.preventDefault();
-						console.log('Тут должна быть отправка формы');
+						console.log(`Тут должна быть отправка формы: 
+							tel: ${formTel}
+							pas: ${formPassword}`);
+						clearForm()
 						dispatch(toggleModal())
 					}}>Войти</button>
 			</form>
 		</>
 	)
-
 	const form2 = (
 		<>
 			Форма 2
