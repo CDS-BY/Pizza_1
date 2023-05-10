@@ -4,6 +4,8 @@ import { toggleModal } from './modalSlice'
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import Wok from '../wok/Wok';
+
 const AuthModal = ({ activeModal }) => {
 	const [formTel, setFormTel] = useState('')
 	const [formPassword, setFormPassword] = useState('')
@@ -57,6 +59,9 @@ const AuthModal = ({ activeModal }) => {
 			Форма 3
 		</>
 	)
+	const form4 = (
+		<Wok />
+	)
 
 	let showForm;
 
@@ -69,6 +74,9 @@ const AuthModal = ({ activeModal }) => {
 			break;
 		case '3':
 			showForm = form3;
+			break;
+		case '4':
+			showForm = form4;
 			break;
 		default:
 			console.log('хз');
@@ -87,6 +95,7 @@ const AuthModal = ({ activeModal }) => {
 						<li onClick={() => setActiveForm('1')} className="other-modal__item">Авторизироваться</li>
 						<li onClick={() => setActiveForm('2')} className="other-modal__item">Восстановить пароль</li>
 						<li onClick={() => setActiveForm('3')} className="other-modal__item">Зарегистрироваться</li>
+						<li onClick={() => setActiveForm('4')} className="other-modal__item">WOK (удалить)</li>
 					</ul>
 					<button onClick={() => dispatch(toggleModal())} className="modal__close close"></button>
 				</div>

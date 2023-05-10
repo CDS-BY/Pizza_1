@@ -1,20 +1,18 @@
 import './items.css'
 
-import { useHttp } from '../../hooks/http.hook'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import {fetchItems} from '../../actions/actions'
+import {fetchItems} from './itemsSlice'
 import ItemCart from '../itemCart/ItemCart'
 
 const Items = () => {
 
-	const {items, itemsLoadingStatus} = useSelector(state => state.items);
-	const dispatch = useDispatch();
-	const {request} = useHttp();
+	const {items, itemsLoadingStatus} = useSelector(state => state.items)
+	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispatch(fetchItems(request))
+		dispatch(fetchItems())
 		// eslint-disable-next-line
 	}, [])
 
