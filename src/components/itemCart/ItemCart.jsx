@@ -1,15 +1,13 @@
 // import * as actions from '../../actions/actions'
-import { addCartItem } from '../cart/cartSlice'
-import { useDispatch } from 'react-redux'
+
 
 
 import './itemCart.css'
 
 const ItemCart = ({price, 
 						imageUrl = "./image-1.jpg", 
-						name='name'}) => {
-
-	const dispatch = useDispatch();
+						name='name',
+						onAdd}) => {
 
 	return (
 		<div className="cart__body">
@@ -24,7 +22,7 @@ const ItemCart = ({price,
 				<div className="cart__footer">
 					<div className="cart__price">{price}</div>
 					<button 
-						onClick={() => dispatch(addCartItem({price, name}))}
+						onClick={onAdd}
 						className="cart__button"
 						>Заказать</button>
 				</div>

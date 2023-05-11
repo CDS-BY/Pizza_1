@@ -1,10 +1,16 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createEntityAdapter } from "@reduxjs/toolkit";
 import { useHttp } from '../../hooks/http.hook'
 
-const initialState = {
-	items: [],
+// const initialState = {
+// 	items: [],
+// 	itemsLoadingStatus: 'idle'
+// }
+
+const itemsAdapter = createEntityAdapter()
+
+const initialState = itemsAdapter.getInitialState({
 	itemsLoadingStatus: 'idle'
-}
+})
 
 export const fetchItems = createAsyncThunk(
 	'items/fetchItems',
@@ -21,7 +27,7 @@ const itemsSlice = createSlice ({
 		itemsFetching: state => {state.itemsLoadingStatus = 'loading'}, 
 		itemsFetched: (state, action) => {
 			state.itemsLoadingStatus = 'idle'
-			state.items = action.payload}, 
+			state.items = action.payload},
 		itemsFetchingError: state => {state.itemsLoadingStatus = 'error'} 
 	},
 	extraReducers: (buider) => {
@@ -29,7 +35,8 @@ const itemsSlice = createSlice ({
 			.addCase(fetchItems.pending, state => {state.itemsLoadingStatus = 'loading'})
 			.addCase(fetchItems.fulfilled, (state, action) => {
 				state.itemsLoadingStatus = 'idle'
-				state.items = action.payload[0].pizza})
+				// state.items = action.payload[0].pizza})
+				itemsAdapter.setAll(state, action.payload[0].pizza)})
 			.addCase(fetchItems.rejected, state => {state.itemsLoadingStatus = 'error'} )
 			.addDefaultCase(() => {})
 	}
@@ -38,6 +45,9 @@ const itemsSlice = createSlice ({
 const {reducer, actions} = itemsSlice
 
 export default reducer
+
+export const {selectAll} = itemsAdapter.getSelectors(state => state.items)
+
 export const {
 	itemsFetching,
 	itemsFetched,

@@ -3,12 +3,15 @@ import './items.css'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import {fetchItems} from './itemsSlice'
+import {fetchItems, selectAll } from './itemsSlice'
 import ItemCart from '../itemCart/ItemCart'
+
+import { addCartItem } from '../cart/cartSlice'
 
 const Items = () => {
 
-	const {items, itemsLoadingStatus} = useSelector(state => state.items)
+	const {itemsLoadingStatus} = useSelector(state => state.items)
+	const items = useSelector(selectAll)
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -22,14 +25,23 @@ const Items = () => {
 		return <div>Ошибка</div>
 	}
 
+	const onAdd = (id, data) => {
+		dispatch(addCartItem({id, ...data}))
+	}
+
 	const renderItems = (arr) => {
 		if(arr.length === 0) {
 			<h2>Товаров пока нет</h2>
 		}
-		
-		return arr.map(({id, ...props}) => (
-				<ItemCart key={id} {...props} />
-		))
+
+		// return arr.map(({id, ...props}) => (
+		// 		<ItemCart key={id} {...props} />
+		// ))
+		return arr.map(({id, ...props}) => {
+			return (
+				<ItemCart key={id} {...props} onAdd={() => onAdd(id, {...props})}/>
+		)
+		})
 
 	}
 

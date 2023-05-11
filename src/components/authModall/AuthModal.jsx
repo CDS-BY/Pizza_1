@@ -56,7 +56,33 @@ const AuthModal = ({ activeModal }) => {
 	)
 	const form3 = (
 		<>
-			Форма 3
+			<form action="auth" className="modal__form">
+				<div className="modal__item">
+					<label htmlFor="" className="modal__label">Телефон</label>
+					<input 
+						value={formTel} 
+						onChange={e => setFormTel(e.target.value)} 
+						type="tel" className="modal__input" />
+				</div>
+				<div className="modal__item">
+					<input 
+						type="password" 
+						className="modal__input"
+						placeholder="password"
+						value={formPassword} 
+						onChange={e =>	setFormPassword(e.target.value)}  />
+				</div>
+				<button
+					className="modal__btn"
+					onClick={(e) => {
+						e.preventDefault();
+						console.log(`Тут должна быть отправка формы: 
+							tel: ${formTel}
+							pas: ${formPassword}`);
+						clearForm()
+						dispatch(toggleModal())
+					}}>Зарегистрироваться</button>
+			</form>
 		</>
 	)
 	const form4 = (

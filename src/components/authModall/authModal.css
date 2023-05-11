@@ -133,3 +133,7 @@
 	background-size: 25px auto;
 	opacity: .9;
 }
+input::placeholder{
+	opacity: 0.4;
+	font-size: 15px;
+}

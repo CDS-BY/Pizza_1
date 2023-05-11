@@ -18,16 +18,42 @@
 .order__body {
 	flex: 0 0 calc(100% - 32px - 21px - 20px);
 	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
 }
-.order__body > div {
+/* .order__body > div {
 	display: flex;
 	justify-content: space-between;
-}
-.order__sum{
-	flex: 0 0 21px;
+} */
+.order__footer{
 	font-weight: 700;
 	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	background: #F5F5F5;
+	z-index: 2;
+}
+.order__total{
+	display: flex;
 	justify-content: space-between;
+	gap: 10px;
+}
+.order__button {
+	cursor: pointer;
+	padding: 10px;
+	background-color: rgb(142, 206, 45);
+	transition: background-color 0.3s ease 0s;
+	border: none;
+	border-radius: 5px;
+}
+.order__button:hover {
+	background-color: greenyellow;
 }
 .text{
 	color: black;
@@ -37,4 +63,19 @@
 	text-align: center;
 	font: 400 16px/21px 'SF Pro Display';
 	opacity: .2;
+}
+.order__item{
+	display: grid;
+	grid-template-columns: 1fr 40px 50px;
+	gap: 10px;
+	align-items: center;
+	font-size: 15px;
+	line-height: 17px;
+}
+.order__weight{
+	opacity: .4;
+}
+.order__btn{
+	justify-self: center;
+	padding: 2px;
 }
