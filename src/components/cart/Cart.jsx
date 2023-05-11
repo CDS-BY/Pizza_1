@@ -1,6 +1,6 @@
 import './cart.css'
 
-import {removeCartItem, selectAll} from './cartSlice'
+import {removeCartItem, selectAll, calcSum} from './cartSlice'
 
 import {useSelector, useDispatch} from 'react-redux'
 
@@ -23,7 +23,11 @@ const Cart = () => {
 								<div className="order__weight">{elem.weight} г.</div>
 							</div>
 							<button
-								onClick={() => dispatch(removeCartItem(elem.id))}
+								onClick={() => {
+									dispatch(removeCartItem(elem.id))
+									let newSum = +sum - elem.price;
+									dispatch(calcSum(newSum))
+								}}
 								className="order__btn"
 								type="button"
 							>X</button>

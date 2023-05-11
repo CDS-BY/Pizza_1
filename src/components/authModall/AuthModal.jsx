@@ -1,21 +1,58 @@
 import './authModal.css'
 
-import { toggleModal } from './modalSlice'
+import { toggleModal, setUser } from './modalSlice'
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+
 import Wok from '../wok/Wok';
 
-const AuthModal = ({ activeModal }) => {
-	const [formTel, setFormTel] = useState('')
+const AuthModal = () => {
+	const [formEmail, setFormEmail] = useState('')
 	const [formPassword, setFormPassword] = useState('')
 	const [activeForm, setActiveForm] = useState('1')
 
 	const { modalOpen } = useSelector(state => state.modal)
 	const dispatch = useDispatch();
 
+
+	const handleLogin = (email, password) => {
+		const auth = getAuth();
+		signInWithEmailAndPassword(auth, email, password)
+			.then(({ user }) => {
+				dispatch(setUser({
+					email: user.email,
+					id: user.uid,
+					token: user.accessToken
+				}))
+				dispatch(toggleModal())
+			})
+			.catch(() => alert('Invalid user'))
+			.finally(() => {
+				clearForm()
+			})
+	}
+
+	const handleRegister = (email, password) => {
+		const auth = getAuth()
+		createUserWithEmailAndPassword(auth, email, password)
+			.then(({ user }) => {
+				dispatch(setUser({
+					email: user.email,
+					id: user.uid,
+					token: user.accessToken
+				}))
+				dispatch(toggleModal())
+			})
+			.catch(() => alert('Произошла ошибка, или такой пользователь уже существует - не дописано'))
+			.finally(() => {
+				clearForm()
+			})
+	}
+
 	const clearForm = () => {
-		setFormTel('')
+		setFormEmail('')
 		setFormPassword('')
 	}
 
@@ -23,28 +60,24 @@ const AuthModal = ({ activeModal }) => {
 		<>
 			<form action="auth" className="modal__form">
 				<div className="modal__item">
-					<label htmlFor="" className="modal__label">Телефон</label>
-					<input 
-						value={formTel} 
-						onChange={e => setFormTel(e.target.value)} 
-						type="tel" className="modal__input" />
+					<label htmlFor="" className="modal__label">Почта</label>
+					<input
+						value={formEmail}
+						onChange={e => setFormEmail(e.target.value)}
+						type="email" className="modal__input" />
 				</div>
 				<div className="modal__item">
-					<input 
-						type="password" 
+					<input
+						type="password"
 						className="modal__input"
-						value={formPassword} 
-						onChange={e =>	setFormPassword(e.target.value)}  />
+						value={formPassword}
+						onChange={e => setFormPassword(e.target.value)} />
 				</div>
 				<button
 					className="modal__btn"
 					onClick={(e) => {
-						e.preventDefault();
-						console.log(`Тут должна быть отправка формы: 
-							tel: ${formTel}
-							pas: ${formPassword}`);
-						clearForm()
-						dispatch(toggleModal())
+						e.preventDefault()
+						handleLogin(formEmail, formPassword)
 					}}>Войти</button>
 			</form>
 		</>
@@ -58,29 +91,24 @@ const AuthModal = ({ activeModal }) => {
 		<>
 			<form action="auth" className="modal__form">
 				<div className="modal__item">
-					<label htmlFor="" className="modal__label">Телефон</label>
-					<input 
-						value={formTel} 
-						onChange={e => setFormTel(e.target.value)} 
-						type="tel" className="modal__input" />
+					<label htmlFor="" className="modal__label">Почта</label>
+					<input
+						value={formEmail}
+						onChange={e => setFormEmail(e.target.value)}
+						type="email" className="modal__input" />
 				</div>
 				<div className="modal__item">
-					<input 
-						type="password" 
+					<input
+						type="password"
 						className="modal__input"
-						placeholder="password"
-						value={formPassword} 
-						onChange={e =>	setFormPassword(e.target.value)}  />
+						value={formPassword}
+						onChange={e => setFormPassword(e.target.value)} />
 				</div>
 				<button
 					className="modal__btn"
 					onClick={(e) => {
-						e.preventDefault();
-						console.log(`Тут должна быть отправка формы: 
-							tel: ${formTel}
-							pas: ${formPassword}`);
-						clearForm()
-						dispatch(toggleModal())
+						e.preventDefault()
+						handleRegister(formEmail, formPassword)
 					}}>Зарегистрироваться</button>
 			</form>
 		</>

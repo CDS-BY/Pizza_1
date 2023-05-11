@@ -3,6 +3,8 @@ import Main from './components/main/Main';
 import AuthModal from './components/authModall/AuthModal';
 
 import { useState, useEffect } from 'react';
+// import {Router, Route, Routes} from 'react-router-dom'
+
 
 import './App.css';
 
@@ -15,7 +17,6 @@ function App() {
 			<Main/>
 			{/* <Footer/> */}
 		</div>
-
 	);
 }
 

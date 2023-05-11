@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import {fetchItems, selectAll } from './itemsSlice'
 import ItemCart from '../itemCart/ItemCart'
 
-import { addCartItem } from '../cart/cartSlice'
+import { addCartItem, calcSum } from '../cart/cartSlice'
 
 const Items = () => {
 
 	const {itemsLoadingStatus} = useSelector(state => state.items)
 	const items = useSelector(selectAll)
+	const cartItems = useSelector(state => state.cart)
+	const { sum } = useSelector(state => state.cart)
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -26,17 +28,26 @@ const Items = () => {
 	}
 
 	const onAdd = (id, data) => {
-		dispatch(addCartItem({id, ...data}))
+		// console.log(`айди_клика: ${id}`)
+		if (Object.keys(cartItems.entities).length === 0) {
+			dispatch(addCartItem({id, ...data}))
+			dispatch(calcSum(data.price))
+		} else {
+			if(cartItems.entities.hasOwnProperty(id)) {
+				console.log('такое уже есть - увеличить кол-во')
+			} else {
+				dispatch(addCartItem({id, ...data}))
+				let newSum = +sum + +data.price;
+				dispatch(calcSum(newSum))
+			}
+		}
+		// dispatch(addCartItem({id, ...data}))
 	}
 
 	const renderItems = (arr) => {
 		if(arr.length === 0) {
 			<h2>Товаров пока нет</h2>
 		}
-
-		// return arr.map(({id, ...props}) => (
-		// 		<ItemCart key={id} {...props} />
-		// ))
 		return arr.map(({id, ...props}) => {
 			return (
 				<ItemCart key={id} {...props} onAdd={() => onAdd(id, {...props})}/>

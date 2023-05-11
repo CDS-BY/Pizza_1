@@ -1,12 +1,15 @@
 import './header.css'
 import logo from './logo-carte.svg'
 
-import {toggleModal} from '../authModall/modalSlice'
+import {toggleModal, removeUser} from '../authModall/modalSlice'
 import {useSelector, useDispatch} from 'react-redux'
+import { useAuth } from '../../hooks/useAuth'
 
 const Header = () => {
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch()
+
+	const {isAuth, email} = useAuth()
 	
 	return (
 		<div className="header">
@@ -26,10 +29,15 @@ const Header = () => {
 					</ul>
 				</nav> */}
 				{/* <button className="header__cart">Корзина</button> */}
-				<div className="header__auth auth">
-					<button onClick={() => dispatch(toggleModal())} className="auth__link">Войти</button>
-					{/* <a href="№" className="auth__link">Зарегистрироваться</a> */}
-				</div>
+				{isAuth ? 
+					(<div className="header__auth auth">
+					Пользователь: {email}
+					<button onClick={() => dispatch(removeUser())} className="auth__link">Выйти</button>
+					</div>) : 
+					(<div className="header__auth auth">
+						<button onClick={() => dispatch(toggleModal())} className="auth__link">Войти</button>
+						{/* <a href="№" className="auth__link">Зарегистрироваться</a> */}
+					</div>)}
 			</div>
 		</div>
 	)
