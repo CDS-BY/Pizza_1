@@ -1,19 +1,27 @@
-// import * as actions from '../../actions/actions'
-
-
+import { toggleWok, setWok } from '../wok/wokSlice'
+import { useDispatch } from 'react-redux'
 
 import './itemCart.css'
 
 const ItemCart = ({price, 
 						imageUrl = "./image-1.jpg", 
 						name='name',
+						weight,
 						onAdd}) => {
+
+	const dispatch = useDispatch()
+
+	const onToggleWok = (data) => {
+		const id = Math.floor(Math.random() * 100)
+		dispatch(toggleWok())
+		dispatch(setWok({id, ...data}))
+	}
 
 	return (
 		<div className="cart__body">
-			<a href="#" className="cart__image">
+			<div onClick={ () => onToggleWok({name, price, imageUrl, weight}) } className="cart__image">
 				<img src={imageUrl} alt="1" />
-			</a>
+			</div>
 			<div className="cart__content">
 				<h2 className="cart__title">{name}</h2>
 				<div className="cart__text">

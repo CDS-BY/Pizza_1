@@ -1,10 +1,5 @@
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
 
-// const initialState = {
-// 	items: [],
-// 	sum: 0
-// }
-
 const cartAdapter = createEntityAdapter()
 const initialState = cartAdapter.getInitialState({
 	sum: 0
@@ -15,6 +10,7 @@ const cartSlice = createSlice({
 	initialState,
 	reducers: {
 		addCartItem: (state, action) => {
+			console.log(action.payload);
 			cartAdapter.addOne(state, action.payload)
 		},
 		removeCartItem: (state, action) => {

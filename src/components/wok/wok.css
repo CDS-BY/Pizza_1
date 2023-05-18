@@ -1,0 +1,171 @@
+.wok {
+	position: fixed;
+	width: 100%;
+	min-height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.308);
+	z-index: 500;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.wok__body{
+	width: 330px;
+	min-height: 100%;
+	background-color: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+	position: relative;
+}
+.wok__close{
+	position: absolute;
+	z-index: 10;
+	top: 10px;
+	right: 10px;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	background-color:#e6e6e6;
+	opacity: .5;
+	transition: opacity 300ms;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border: none;
+}
+.wok__close:hover{
+	opacity: 1;
+}
+.wok__picture{
+	position: relative;
+	width: 100%;
+	padding-bottom: 62.5%;
+}
+.wok__image{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+.conten-wok{
+	padding: 20px;
+	font: 16px/19px "sf pro display";
+}
+.conten-wok__header:not(:last-child){
+	margin-bottom: 20px;
+}
+.header-content-wok{
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.header-content-wok__wrap{
+	flex: 0 0 200px;
+}
+.header-content-wok__name{
+	color: #2A2A2A;
+}
+.header-content-wok__weight{
+	color: #BDBDBD;
+   font: 500 14px/16px;
+   white-space: nowrap;
+}
+.header-content-wok__price{
+	flex: 0 0 80px;
+	display: flex;
+	justify-content: flex-end;
+	color: #242424;
+   font-weight: 600;
+	white-space: nowrap;
+}
+.header-content-wok__description{
+	flex: 0 0 100%;
+}
+.conten-wok__title{
+	font: 700 16px/18px "sf pro display";
+}
+.conten-wok__title:not(:last-child){
+	margin-bottom: 15px;
+}
+/* .conten-wok__list{} */
+/* .conten-wok__item{} */
+.conten-wok__item:not(:last-child){
+	margin-bottom: 15px;
+}
+.item-content-wok{
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+.item-content-wok__description{
+	display: flex;
+	gap: 10px;
+}
+.item-content-wok__checkbox{
+	height: 25px;
+	width: 25px;
+}
+/* =========== */
+.footer-wok{
+	height: 64px;
+	display: flex;
+	align-items: center;
+	padding: 0px 10px;
+	gap: 15px;
+}
+.footer-wok__counter{
+	flex: 0 0 109px;
+	display: flex;
+	align-items: center;
+}
+.footer-wok__button{
+	flex: 0 0 37px;
+	height: 37px;
+	border-radius: 7px;
+	color: #292929;
+   background: #F4F3EF;
+	transition: background 300ms;
+	cursor: pointer;
+	font-size: 24px;
+	position: relative;
+}
+.footer-wok__button:hover{
+   background: #e9e903;
+}
+.footer-wok__button:active{
+   top: 1px;
+}
+.footer-wok__count{
+	flex: 0 0 37px;
+	display: flex;
+	justify-content: center;
+}
+.footer-wok__add{
+	flex: 1 1 auto;
+}
+.button{
+	padding: 0px 10px;
+	background: rgba(49,188,107,.9);
+   border-radius: 8px;
+   height: 44px;
+   font: 600 18px/44px "sf pro display";
+   color: #fff;
+   text-align: center;
+   transition: transform 300ms,background-color 200ms;
+   cursor: pointer;
+	position: relative;
+}
+.button:hover{
+	background: rgba(19, 151, 74, 0.9);
+}
+.button:active{
+	top: 1px;
+}

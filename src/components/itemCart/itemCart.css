@@ -23,6 +23,7 @@
 	overflow: hidden;
 	position: relative;
 	padding-bottom: 100%;
+	cursor: pointer;
 }
 
 .cart__image img{

@@ -28,7 +28,6 @@ const Items = () => {
 	}
 
 	const onAdd = (id, data) => {
-		// console.log(`айди_клика: ${id}`)
 		if (Object.keys(cartItems.entities).length === 0) {
 			dispatch(addCartItem({id, ...data}))
 			dispatch(calcSum(data.price))

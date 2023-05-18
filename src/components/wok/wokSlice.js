@@ -3,6 +3,11 @@ import { useHttp } from "../../hooks/http.hook";
 
 const initialState = {
 	wokItems: [],
+	wokName: '0-0',
+	wokPrice: '0-0',
+	wokWeight: '0-0',
+	wokImageUrl: '0-0',
+	wokId: '',
 	wokItemsLoadingStatus: 'idle',
 	showWok: false
 }
@@ -24,10 +29,16 @@ const wokSlice = createSlice({
 			state.wokItemsLoadingStatus = 'idle'
 			state.wokItems = action.payload}, 
 		wokItemsFetchingError: state => {state.wokItemsLoadingStatus = 'error'} ,
-		showWok: state => {state.showWok = !state.showWok} 
+		toggleWok: state => {state.showWok = !state.showWok} ,
+		setWok: (state, action) => {
+			state.wokName = action.payload.name
+			state.wokPrice = action.payload.price
+			state.wokWeight = action.payload.weight
+			state.wokId = action.payload.id
+			state.wokImageUrl = action.payload.imageUrl},
 	},
-	extraReducers: (buider) => {
-		buider
+	extraReducers: (builder) => {
+		builder
 			.addCase(fetchWokItems.pending, state => {state.wokItemsLoadingStatus = 'loading'})
 			.addCase(fetchWokItems.fulfilled, (state, action) => {
 				state.wokItemsLoadingStatus = 'idle'
@@ -44,5 +55,6 @@ export const {
 	wokItemsFetching,
 	wokItemsFetched,
 	wokItemsFetchingError,
-	showWok
+	toggleWok,
+	setWok
 } = actions
