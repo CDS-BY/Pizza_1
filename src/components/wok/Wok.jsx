@@ -18,6 +18,7 @@ const Wok = () => {
 			wokImageUrl, 
 			wokPrice, 
 			wokWeight,
+			wokDescription,
 			wokId 
 	} = useSelector(state => state.wok)
 	
@@ -27,6 +28,7 @@ const Wok = () => {
 	const dispatch = useDispatch()
 
 	useEffect(() => {
+		console.log(1);
 		dispatch(fetchWokItems())
 	},[])
 
@@ -97,36 +99,36 @@ const Wok = () => {
 //===================================================================
 
 
-
 	return (
 		<div className="wok">
-			<div className="wok__body">
-				<button onClick={() => onCloseWok()} className="wok__close">X</button>
-				<div className="wok__picture">
-					<img  className="wok__image" src={wokImageUrl} alt="1" />
-				</div>
-				<div className="wok__content conten-wok">
-					<div className="conten-wok__header header-content-wok">
-						<div className="header-content-wok__wrap">
-							<div className="header-content-wok__name">Пицца "{wokName}"</div>
-							<div className="header-content-wok__weight">{wokWeight}г</div>
-						</div>
-						<div className="header-content-wok__price">{wokPrice}р</div>
-						<div className="header-content-wok__description">Тесто, томатно-чесночный соус, моцарелла, креветки, форель, оливки, крем чиз</div>
+			<div className="wok__wrap">
+				<div className="wok__body">
+					<button onClick={() => onCloseWok()} className="wok__close">X</button>
+					<div className="wok__picture">
+						<img  className="wok__image" src={wokImageUrl} alt="1" />
 					</div>
-					<h2 className="conten-wok__title">Соус на итальянскую пиццу</h2>
-					<ul className="conten-wok__list">
-						{elements}
-					</ul>
+					<div className="wok__content conten-wok">
+						<div className="conten-wok__header header-content-wok">
+							<div className="header-content-wok__wrap">
+								<div className="header-content-wok__name">Пицца "{wokName}"</div>
+								<div className="header-content-wok__weight">{wokWeight}г</div>
+							</div>
+							<div className="header-content-wok__price">{wokPrice}р</div>
+							<div className="header-content-wok__description">{wokDescription}</div>
+						</div>
+						<h2 className="conten-wok__title">Соус на итальянскую пиццу</h2>
+						<ul className="conten-wok__list">
+							{elements}
+						</ul>
+					</div>
 				</div>
-				<div className="wok__footer footer-wok">
+				<div className="footer-wok">
 					<div className="footer-wok__counter">
 						<button type="submit" class="footer-wok__button">-</button>
 						<span class="footer-wok__count">1</span>
 						<button type="submit" class="footer-wok__button">+</button>
 					</div>
 					<button 
-						// onClick={() => onAddItem({name, price, weight})} 
 						onClick={() => onAdd({name, price, weight})} 
 						type="submit" 
 						class="footer-wok__add button"

@@ -7,6 +7,7 @@ const initialState = {
 	wokPrice: '0-0',
 	wokWeight: '0-0',
 	wokImageUrl: '0-0',
+	wokDescription: '0-0',
 	wokId: '',
 	wokItemsLoadingStatus: 'idle',
 	showWok: false
@@ -35,6 +36,7 @@ const wokSlice = createSlice({
 			state.wokPrice = action.payload.price
 			state.wokWeight = action.payload.weight
 			state.wokId = action.payload.id
+			state.wokDescription = action.payload.description
 			state.wokImageUrl = action.payload.imageUrl},
 	},
 	extraReducers: (builder) => {

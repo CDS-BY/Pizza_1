@@ -10,11 +10,11 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 const AuthModal = () => {
 	const [formEmail, setFormEmail] = useState('')
 	const [formPassword, setFormPassword] = useState('')
+	const [formTel, setFormTel] = useState('')
 	const [activeForm, setActiveForm] = useState('1')
 
 	const { modalOpen } = useSelector(state => state.modal)
 	const dispatch = useDispatch();
-
 
 	const handleLogin = (email, password) => {
 		const auth = getAuth();
@@ -97,11 +97,20 @@ const AuthModal = () => {
 						type="email" className="modal__input" />
 				</div>
 				<div className="modal__item">
+					<label htmlFor="" className="modal__label">Пароль</label>
 					<input
 						type="password"
 						className="modal__input"
 						value={formPassword}
 						onChange={e => setFormPassword(e.target.value)} />
+				</div>
+				<div className="modal__item modal__item_tel">
+					<label htmlFor="" className="modal__label">Телефон</label>
+					<input
+						type="tel"
+						className="modal__input"
+						value={formTel}
+						onChange={e => setFormTel(e.target.value)} />
 				</div>
 				<button
 					className="modal__btn"

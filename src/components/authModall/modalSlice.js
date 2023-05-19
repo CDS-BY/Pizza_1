@@ -6,6 +6,7 @@ const initialState = {
 				token: null,
 				id: null,
 				adress: null,
+				password: null
 			},
 	authLoadingStatus: 'idle',
 	modalOpen: false

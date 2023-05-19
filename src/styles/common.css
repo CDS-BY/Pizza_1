@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:regular,600,700,900");
+
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	/* min-height: 100%; */
+	background-color: rgb(211, 205, 205);
+}
+
+[class*='__container'] {
+	max-width: 1230px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+form {
+	padding-top: 100px;
+}
+form:not(:last-child) {
+	margin-bottom: 30px;
+}
+.app {
+	position: relative;
+}

@@ -7,6 +7,7 @@ const ItemCart = ({price,
 						imageUrl = "./image-1.jpg", 
 						name='name',
 						weight,
+						description,
 						onAdd}) => {
 
 	const dispatch = useDispatch()
@@ -19,13 +20,13 @@ const ItemCart = ({price,
 
 	return (
 		<div className="cart__body">
-			<div onClick={ () => onToggleWok({name, price, imageUrl, weight}) } className="cart__image">
+			<div onClick={ () => onToggleWok({name, price, imageUrl, weight, description}) } className="cart__image">
 				<img src={imageUrl} alt="1" />
 			</div>
 			<div className="cart__content">
 				<h2 className="cart__title">{name}</h2>
 				<div className="cart__text">
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, sapiente?</p>
+					<p>{description}</p>
 				</div>
 				<div className="cart__footer">
 					<div className="cart__price">{price}</div>

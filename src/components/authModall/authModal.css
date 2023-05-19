@@ -37,7 +37,7 @@
 .modal__form {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 50px;
 }
 .modal__form:not(:last-child) {
 	margin-bottom: 25px;
@@ -56,6 +56,11 @@
 	height: 15px;
 	z-index: 100;
 	background: url("./icon-1.svg") 0 0 no-repeat;
+}
+.modal__item_tel::before {
+	content: "+375";
+	left: -8px;
+	background: none
 }
 .modal__label {
 	position: absolute;
