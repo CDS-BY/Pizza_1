@@ -1,8 +1,8 @@
 import './header.css'
 import logo from './logo-carte.svg'
 
-import {toggleModal, removeUser} from '../authModall/modalSlice'
-import {useSelector, useDispatch} from 'react-redux'
+import { toggleModal, removeUser } from '../authModall/modalSlice'
+import { useDispatch } from 'react-redux'
 import { useAuth } from '../../hooks/useAuth'
 
 const Header = () => {
@@ -21,14 +21,7 @@ const Header = () => {
 					<input type="text" className='search__input' placeholder="Поиск блюд и ресторанов" />
 					<button className="search__btn" />
 				</div>
-				{/* <nav className="header__menu menu">
-					<ul className="menu__list">
-						<li className="menu__item"><a href="#" className="menu__link">Пункт 1</a></li>
-						<li className="menu__item"><a href="#" className="menu__link">Пункт 2</a></li>
-						<li className="menu__item"><a href="#" className="menu__link">Пункт 3</a></li>
-					</ul>
-				</nav> */}
-				{/* <button className="header__cart">Корзина</button> */}
+				<button className="header__cart">Корзина</button>
 				{isAuth ? 
 					(<div className="header__auth auth">
 					Пользователь: {email}
@@ -36,7 +29,6 @@ const Header = () => {
 					</div>) : 
 					(<div className="header__auth auth">
 						<button onClick={() => dispatch(toggleModal())} className="auth__link">Войти</button>
-						{/* <a href="№" className="auth__link">Зарегистрироваться</a> */}
 					</div>)}
 			</div>
 		</div>

@@ -5,7 +5,6 @@ import Wok from './components/wok/Wok';
 
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-// import {Router, Route, Routes} from 'react-router-dom'
 
 function App() {
 

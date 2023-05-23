@@ -66,16 +66,35 @@
 }
 .order__item{
 	display: grid;
-	grid-template-columns: 1fr 40px 50px;
+	grid-template-columns: 1fr 70px 50px;
 	gap: 10px;
 	align-items: center;
 	font-size: 15px;
 	line-height: 17px;
 }
+.order__count{
+	display: flex;
+	align-items: center;
+}
+.order__count > *{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 .order__weight{
 	opacity: .4;
 }
+.order__value {
+	flex: 0 0 30px;
+}
 .order__btn{
+	flex: 0 0 20px;
 	justify-self: center;
 	padding: 2px;
+	background-color: rgba(121, 112, 112, 0.181);
+	border-radius: 3px;
+	position: relative;
+}
+.order__btn:active{
+	top: 1px;
 }

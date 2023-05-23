@@ -9,7 +9,7 @@ const Main = () => {
 		<main className="main">
 			<div className="main__container">
 				<Items />
-				<Cart/>
+				<Cart />
 			</div>
 		</main>
 	)
