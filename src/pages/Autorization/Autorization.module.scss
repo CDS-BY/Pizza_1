@@ -1,0 +1,25 @@
+.root {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.item {
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+.button {
+	display: block;
+    margin: 20px auto 0;
+    padding: 5px 30px;
+	border: 0;
+	border-radius: 4px;
+	position: relative;
+	font: 600 19px/45px geometria,arial;
+	color: #fff;
+    background: #68C600;
+	cursor: pointer;
+	transition: background-color 250ms;
+    &:hover{
+        background-color: greenyellow;
+    }
+}

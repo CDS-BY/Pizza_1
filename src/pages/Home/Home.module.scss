@@ -1,0 +1,10 @@
+.root{
+    display: grid;
+	grid-template-columns: calc(100% - 260px - 20px) 260px;
+	gap: 20px;
+}
+.body{
+	> *:not(:last-child) {
+		margin-bottom: 10px;
+	}
+}

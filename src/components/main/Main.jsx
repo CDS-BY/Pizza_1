@@ -1,18 +1,23 @@
-import Cart from '../cart/Cart'
-import Items from '../items/Items'
+import Autorization from "../../pages/Autorization";
+import NotFound from "../../pages/NotFound"
 
-import './main.css'
+import { Routes, Route } from "react-router-dom";
+
+import "./main.css";
+import Home from "../../pages/Home";
 
 const Main = () => {
+  return (
+    <main className="main">
+      <div className="main__container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/autorization" element={<Autorization />} />
+		  <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </main>
+  );
+};
 
-	return (
-		<main className="main">
-			<div className="main__container">
-				<Items />
-				<Cart />
-			</div>
-		</main>
-	)
-}
-
-export default Main
+export default Main;

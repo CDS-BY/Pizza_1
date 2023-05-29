@@ -3,9 +3,6 @@
 	padding-bottom: 60px;
 }
 .main__container{
-	display: grid;
-	grid-template-columns: calc(100% - 260px - 20px) 260px;
-	gap: 20px;
 }
 .main__order{
 	background-color: #fff;
